@@ -50,8 +50,7 @@ module.exports = function(grunt) {
     mocha: {
       all: {
         options: {
-          run: true,
-          globals: ['$']
+          run: true
         },
         src: ['test/index.html']
       }
