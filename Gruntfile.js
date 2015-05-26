@@ -74,7 +74,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/iptools-jquery-expandable_module.min.js': 'src/iptools-jquery-expandable_module.js'
+          'dist/js/iptools-jquery-expandable_module.min.js': 'src/iptools-jquery-expandable_module.js'
         }
       }
     },
