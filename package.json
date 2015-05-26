@@ -14,7 +14,9 @@
     }
   ],
   "bugs": "https://github.com/interactive-pioneers/iptools-jquery-expandable_module/issues",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "~1.7.3"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-copy": "~0.5.0",
