@@ -1,20 +1,20 @@
 'use strict';
+
 /* jshint undef: false */
-(function($) {
-  describe('iptoolsExpandableModule', function() {
 
-    var expandableModule = null;
+describe('iptoolsExpandableModule', function() {
 
-    describe('init', function() {
+  var expandableModule = null;
 
-      beforeEach(function() {
-        expandableModule = $('.expandable_module').expandableModule();
-      });
+  describe('init', function() {
 
-      it('expected to construct object', function() {
-        return expect(expandableModule).to.exist;
-      });
-
+    beforeEach(function() {
+      expandableModule = $('.expandable_module').expandableModule();
     });
+
+    it('expected to construct object', function() {
+      return expect(expandableModule).to.exist;
+    });
+
   });
-})(jQuery);
+});
