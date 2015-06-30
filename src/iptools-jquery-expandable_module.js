@@ -1,16 +1,16 @@
 /**
- * jQuery expandable module
+ * jQuery expandable box, expandable list and accordion plugin
  *
- * http://confluence.interactive-pioneers.de/display/SR/Expandable+Module
- * http://jira.interactive-pioneers.com/browse/SR-137
+ * Copyright © 2015, Georg Meyer, David Lehnen, Interactive Pioneers GmbH
  *
  */
-(function($) {
+
+;(function($) {
 
   'use strict';
 
   // defaults
-  var pluginName = 'expandableModule';
+  var pluginName = 'iptExpandable';
   var defaults = {
     eventNamespace: '.' + pluginName
   };
@@ -28,13 +28,13 @@
   var cssClassContentVisible = cssClassBase + '__content--visible';
 
   /**
-   * ExpandableModule
+   * IPTExpandableModule
    * @constructor
    * @param {object} element - jQuery element
    * @param {object} options - plugin options
    * @returns {void}
    */
-  function ExpandableModule(element, options) {
+  function IPTExpandable(element, options) {
 
     this.$element = $(element);
     this.settings = $.extend({}, defaults, options);
@@ -45,7 +45,7 @@
 
   }
 
-  ExpandableModule.prototype = {
+  IPTExpandable.prototype = {
 
     /**
      * initialize ExpandableModule
@@ -80,7 +80,7 @@
     },
 
     /**
-     * destroy ExpandableModule
+     * destroy IPTExpandableModule
      * @returns {void}
      */
     destroy: function() {
@@ -90,12 +90,10 @@
 
   };
 
-  // a really lightweight plugin wrapper around the constructor,
-  // preventing against multiple instantiations
-  $.fn[ pluginName ] = function(options) {
+  $.fn[pluginName] = function(options) {
     return this.each(function() {
       if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName, new ExpandableModule(this, options));
+        $.data(this, 'plugin_' + pluginName, new IPTExpandable(this, options));
       }
     });
   };

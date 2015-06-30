@@ -1,7 +1,7 @@
 {
-  "name": "iptoolsExpandableModule",
+  "name": "iptools-jquery-expandable_module",
   "version": "0.0.1",
-  "description": "Simple jQuery expandable Module",
+  "description": "jQuery expandable box and accordion plugin",
   "homepage": "https://github.com/interactive-pioneers/iptools-jquery-expandable_module",
   "author": {
     "name": "Interactive Pioneers GmbH",

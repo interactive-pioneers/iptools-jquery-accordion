@@ -1,6 +1,6 @@
 {
-  "name": "iptoolsExpandableModule",
-  "description": "Simple jQuery expandable Module",
+  "name": "iptools-jquery-expandable_module",
+  "description": "jQuery expandable box and accordion plugin",
   "main": "src/iptools-jquery-expandable_module.js",
   "version": "0.0.1",
   "license": "GPL-3.0",
