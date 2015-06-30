@@ -16,7 +16,7 @@
   };
 
   // base css class
-  var cssClassBase = 'expandable-module';
+  var cssClassBase = 'iptools-expandable';
 
   // components css classes
   var cssClassPanel = cssClassBase + '__panel';
