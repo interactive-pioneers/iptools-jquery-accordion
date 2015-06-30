@@ -1,10 +1,10 @@
 # iptools-jquery-expandable_module [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-expandable_module.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-expandable_module)
 
-Simple jQuery expandable Module
+jQuery expandable plugin
 
 ## Features
 
-Lighweight expandable Module as jQuery plugin.
+With this plugin you can expand boxes in many ways, expand lists and apply an accordion an elements.
 
 ## Requirements
 
@@ -13,8 +13,13 @@ Lighweight expandable Module as jQuery plugin.
 ## Example
 
 ```html
-<p>@TODO Add examples
-
+<script src="src/iptools-jquery-expandable_module.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.box').iptExpandable({
+    });
+  });
+</script>
 ```
 
 ## Contributions
