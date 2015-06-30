@@ -1,4 +1,4 @@
-# iptools-jquery-expandable_module [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-expandable_module.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-expandable_module)
+# iptools-jquery-expandable [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-expandable.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-expandable)
 
 jQuery expandable plugin
 
@@ -13,7 +13,7 @@ With this plugin you can expand boxes in many ways, expand lists and apply an ac
 ## Example
 
 ```html
-<script src="src/iptools-jquery-expandable_module.js"></script>
+<script src="src/iptools-jquery-expandable.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $('.box').iptExpandable({
@@ -26,13 +26,13 @@ With this plugin you can expand boxes in many ways, expand lists and apply an ac
 
 ### Bug reports, suggestions
 
-- File all your issues, feature requests [here](https://github.com/interactive-pioneers/iptools-jquery-expandable_module/issues)
+- File all your issues, feature requests [here](https://github.com/interactive-pioneers/iptools-jquery-expandable/issues)
 - If filing a bug report, follow the convention of _Steps to reproduce_ / _What happens?_ / _What should happen?_
 - __If you're a developer, write a failing test instead of a bug report__ and send a Pull Request
 
 ### Code
 
-1. Fork it ( https://github.com/[my-github-username]/iptools-jquery-expandable_module/fork )
+1. Fork it ( https://github.com/[my-github-username]/iptools-jquery-expandable/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Develop your feature by concepts of [TDD](http://en.wikipedia.org/wiki/Test-driven_development), see [Tips](#tips)
 3. Commit your changes (`git commit -am 'Add some feature'`)
