@@ -12,7 +12,7 @@
   // defaults
   var pluginName = 'iptExpandable';
   var defaults = {
-    eventNamespace: '.' + pluginName
+    mode: 'default'
   };
 
   // base css class
@@ -56,7 +56,7 @@
 
       this.settings.related = this.$element.hasClass(cssClassRelated);
 
-      this.$element.on('click' + this.settings.eventNamespace, '.' + cssClassTrigger, function(event) {
+      this.$element.on('click' + '.' + this._name, '.' + cssClassTrigger, function(event) {
         self.toggle(event);
       });
     },
@@ -84,7 +84,7 @@
      * @returns {void}
      */
     destroy: function() {
-      this.$element.off('click' + this.settings.eventNamespace, '.' + cssClassTrigger);
+      this.$element.off('click' + '.' + this._name, '.' + cssClassTrigger);
       this.$element.removeData();
     }
 
