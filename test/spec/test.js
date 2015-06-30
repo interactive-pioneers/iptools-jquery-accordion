@@ -1,14 +1,14 @@
 'use strict';
 /* jshint undef: false */
 (function() {
-  describe('iptoolsExpandableModule', function() {
+  describe('iptExpandable', function() {
 
     var expandableModule = null;
 
     describe('init', function() {
 
       beforeEach(function() {
-        expandableModule = $('.expandable_module').expandableModule();
+        expandableModule = $('.expandable_module').iptExpandable();
       });
 
       it('expected to construct object', function() {
