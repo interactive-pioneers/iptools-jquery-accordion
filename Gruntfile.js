@@ -76,7 +76,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/js/iptools-jquery-accordion.min.js': 'src/iptools-jquery-accordion.js'
+          'dist/iptools-jquery-accordion.min.js': 'src/iptools-jquery-accordion.js'
         }
       }
     },
