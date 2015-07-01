@@ -49,6 +49,7 @@
      */
     init: function() {
 
+      this.$element.find('.' + this.settings.contentClass).hide();
       this.addEventListeners();
 
     },
