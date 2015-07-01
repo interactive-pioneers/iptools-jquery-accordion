@@ -25,14 +25,14 @@ module.exports = function(grunt) {
     watch: {
       qa: {
         files: [
-          '<%= yeoman.src %>/iptools-jquery-expandable.js',
+          '<%= yeoman.src %>/iptools-jquery-accordion.js',
           'test/spec/test.js'
         ],
         tasks: ['concurrent:qa']
       },
       bdd: {
         files: [
-          '<%= yeoman.src %>/iptools-jquery-expandable.js',
+          '<%= yeoman.src %>/iptools-jquery-accordion.js',
           'test/spec/test.js'
         ],
         tasks: ['test']
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/js/iptools-jquery-expandable.min.js': 'src/iptools-jquery-expandable.js'
+          'dist/js/iptools-jquery-accordion.min.js': 'src/iptools-jquery-accordion.js'
         }
       }
     },

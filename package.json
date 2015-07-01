@@ -1,8 +1,8 @@
 {
-  "name": "iptools-jquery-expandable",
+  "name": "iptools-jquery-accordion",
   "version": "0.0.1",
-  "description": "jQuery expandable box and accordion plugin",
-  "homepage": "https://github.com/interactive-pioneers/iptools-jquery-expandable",
+  "description": "jQuery accordion plugin",
+  "homepage": "https://github.com/interactive-pioneers/iptools-jquery-accordion",
   "author": {
     "name": "Interactive Pioneers GmbH",
     "email": "hello@interactive-pioneers.de"
@@ -13,7 +13,7 @@
       "email": "gm@interactive-pioneers.de"
     }
   ],
-  "bugs": "https://github.com/interactive-pioneers/iptools-jquery-expandable/issues",
+  "bugs": "https://github.com/interactive-pioneers/iptools-jquery-accordion/issues",
   "dependencies": {
     "jquery": "~1.7.3"
   },
@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/interactive-pioneers/iptools-jquery-expandable.git"
+    "url": "https://github.com/interactive-pioneers/iptools-jquery-accordion.git"
   },
   "licenses": [
     {
@@ -49,7 +49,7 @@
   },
   "keywords": [
     "javascript",
-    "menu",
+    "accordion",
     "jquery",
     "layout"
   ]

@@ -1,7 +1,7 @@
 {
-  "name": "iptools-jquery-expandable",
-  "description": "jQuery expandable box and accordion plugin",
-  "main": "src/iptools-jquery-expandable.js",
+  "name": "iptools-jquery-accordion",
+  "description": "jQuery accordion plugin",
+  "main": "src/iptools-jquery-accordion.js",
   "version": "0.0.1",
   "license": "GPL-3.0",
   "ignore": [
@@ -20,6 +20,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/interactive-pioneers/iptools-jquery-expandable.git"
+    "url": "https://github.com/interactive-pioneers/iptools-jquery-accordion.git"
   }
 }
