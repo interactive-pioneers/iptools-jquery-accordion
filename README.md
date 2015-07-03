@@ -50,6 +50,11 @@ Name             | Default                    | Type    | Description
 :----------------|:---------------------------|:--------|:-----------
 animationSpeed   | `500`                      | int     | Animation speed in miliseconds.                         
 singleOpen       | `true`                     | boolean | Only one open panel at a time.
+baseClass        | `accordion`                | string  | Base class of the accordion.
+panelClass       | `accordion__panel`         | string  | Class of panel.
+triggerClass     | `accordion__trigger`       | string  | Class of trigger element.
+contentClass     | `accordion__content`       | string  | Class of content element.
+activeModifier   | `--active`                 | string  | Modifier appended to active elements.
 
 ## Contributions
 
