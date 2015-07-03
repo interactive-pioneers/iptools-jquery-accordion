@@ -16,6 +16,19 @@
       });
 
     });
+
+    describe('destroy', function() {
+
+      beforeEach(function() {
+        object = $element.iptAccordion(config);
+      });
+
+      it('expected to remove data', function() {
+        object.data(pluginName).destroy();
+        return expect(object.data(pluginName)).to.not.be.ok;
+      });
+
+    });
   });
 })();
 
