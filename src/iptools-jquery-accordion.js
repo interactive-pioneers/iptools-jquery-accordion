@@ -18,9 +18,9 @@
     singleOpen: true,
     baseClass: baseClass,
     panelClass: baseClass + '__panel',
+    panelActiveClass: '__panel--active',
     triggerClass: baseClass + '__trigger',
-    contentClass: baseClass + '__content',
-    activeModifier: '--active'
+    contentClass: baseClass + '__content'
   };
 
   /**
@@ -63,10 +63,7 @@
 
       var self = event.data;
       var $target = $(event.target);
-
       var $panel = $target.closest('.' + self.settings.panelClass);
-      var panelActiveClass = self.settings.panelClass + self.settings.activeModifier;
-
       var $content = $panel.find('.' + self.settings.contentClass);
 
       if (self.settings.singleOpen) {
@@ -77,10 +74,10 @@
         self.$element
           .find('.' + self.settings.panelClass)
           .not($panel)
-          .removeClass(panelActiveClass);
+          .removeClass(self.settings.panelActiveClass);
       }
 
-      $panel.addClass(panelActiveClass);
+      $panel.addClass(self.setting.panelActiveClass);
       $content.slideDown(self.settings.animationSpeed);
 
     },
