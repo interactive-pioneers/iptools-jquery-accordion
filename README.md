@@ -36,9 +36,9 @@ Lightweight and easy to use jQuery accordion plugin.
       singleOpen: true,
       baseClass: 'accordion',
       panelClass: 'accordion__panel',
+      panelActiveClass: 'accordion__panel--active',
       triggerClass: 'accordion__trigger',
-      contentClass: 'accordion__content',
-      activeModifier: '--active'
+      contentClass: 'accordion__content'
     });
   });
 </script>
