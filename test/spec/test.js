@@ -5,10 +5,12 @@
 
     var accordion = null;
 
+    var $element = $('.accordion');
+
     describe('init', function() {
 
       beforeEach(function() {
-        accordion = $('.accordion').iptAccordion();
+        accordion = $element.iptAccordion();
       });
 
       it('expected to construct object', function() {
@@ -20,12 +22,12 @@
     describe('destroy', function() {
 
       beforeEach(function() {
-        object = $element.iptAccordion(config);
+        accordion = $element.iptAccordion();
       });
 
       it('expected to remove data', function() {
-        object.data(pluginName).destroy();
-        return expect(object.data(pluginName)).to.not.be.ok;
+        accordion.data(pluginName).destroy();
+        return expect(accordion.data(pluginName)).to.not.be.ok;
       });
 
     });
