@@ -49,7 +49,8 @@
      */
     init: function() {
 
-      this.$element.find('.' + this.settings.contentClass).hide();
+      this.$panels = this.$element.children('.' + this.settings.panelClass);
+      this.$panels.children('.' + this.settings.contentClass).hide();
       this.addEventListeners();
 
     },
@@ -64,21 +65,18 @@
       var self = event.data;
       var $target = $(event.target);
       var $panel = $target.closest('.' + self.settings.panelClass);
-      var $content = $panel.find('.' + self.settings.contentClass);
+      var $content = $panel.children('.' + self.settings.contentClass);
 
       if (self.settings.singleOpen) {
-        self.$element
-          .find('.' + self.settings.contentClass)
+        self.$panels
+          .children('.' + self.settings.contentClass)
           .not($content)
           .slideUp(self.settings.animationSpeed);
-        self.$element
-          .find('.' + self.settings.panelClass)
-          .not($panel)
-          .removeClass(self.settings.panelActiveClass);
+        self.$panels.not($panel).removeClass(self.settings.panelActiveClass);
       }
 
-      $panel.addClass(self.setting.panelActiveClass);
-      $content.slideDown(self.settings.animationSpeed);
+      $panel.toggleClass(self.settings.panelActiveClass);
+      $content.slideToggle(self.settings.animationSpeed);
 
     },
 
@@ -88,7 +86,9 @@
      */
     addEventListeners: function() {
 
-      this.$element.on('click' + '.' + this._name, '.' + this.settings.triggerClass, this, this.toggle);
+      this.$panels
+        .children('.' + this.settings.triggerClass)
+        .on('click' + '.' + this._name, null, this, this.toggle);
 
     },
 
@@ -97,8 +97,12 @@
      * @returns {void}
      */
     destroy: function() {
-      this.$element.off('click' + '.' + this._name, '.' + this.settings.triggerClass);
+
+      this.$panels
+        .children('.' + this.settings.triggerClass)
+        .off('click' + '.' + this._name);
       this.$element.removeData();
+
     }
 
   };
