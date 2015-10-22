@@ -101,6 +101,7 @@
       this.$panels
         .children('.' + this.settings.triggerClass)
         .off('click' + '.' + this._name);
+      this.$panels.children('.' + this.settings.contentClass).show();
       this.$element.removeData();
 
     }
