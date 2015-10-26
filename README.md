@@ -38,7 +38,9 @@ Lightweight and easy to use jQuery accordion plugin.
       panelClass: 'accordion__panel',
       panelActiveClass: 'accordion__panel--active',
       triggerClass: 'accordion__trigger',
-      contentClass: 'accordion__content'
+      triggerActiveClass: baseClass + '__trigger--active',
+      contentClass: 'accordion__content',
+      contentActiveClass: baseClass + '__content--active'
     });
   });
 </script>
@@ -46,15 +48,17 @@ Lightweight and easy to use jQuery accordion plugin.
 
 ## Options
 
-Name             | Default                    | Type    | Description
-:----------------|:---------------------------|:--------|:-----------
-animationSpeed   | `500`                      | int     | Animation speed in miliseconds.                         
-singleOpen       | `true`                     | boolean | Only one open panel at a time.
-baseClass        | `accordion`                | string  | Base class of the accordion.
-panelClass       | `accordion__panel`         | string  | Class of panel.
-panelActiveClass | `accordion__panel--active` | string  | Class of active panel.
-triggerClass     | `accordion__trigger`       | string  | Class of trigger element.
-contentClass     | `accordion__content`       | string  | Class of content element.
+Name               | Default                      | Type    | Description
+:------------------|:-----------------------------|:--------|:-----------
+animationSpeed     | `500`                        | int     | Animation speed in miliseconds.                         
+singleOpen         | `true`                       | boolean | Only one open panel at a time.
+baseClass          | `accordion`                  | string  | Base class of the accordion.
+panelClass         | `accordion__panel`           | string  | Class of panel.
+panelActiveClass   | `accordion__panel--active`   | string  | Class of active panel.
+triggerClass       | `accordion__trigger`         | string  | Class of trigger element.
+triggerActiveClass | `accordion__trigger--active` | string  | Class of active trigger element.
+contentClass       | `accordion__content`         | string  | Class of content element.
+contentActiveClass | `accordion__content--active` | string  | Class of active content element.
 
 ## Contributions
 
