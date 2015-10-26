@@ -18,9 +18,11 @@
     singleOpen: true,
     baseClass: baseClass,
     panelClass: baseClass + '__panel',
-    panelActiveClass: '__panel--active',
+    panelActiveClass: baseClass + '__panel--active',
     triggerClass: baseClass + '__trigger',
-    contentClass: baseClass + '__content'
+    triggerActiveClass: baseClass + '__trigger--active',
+    contentClass: baseClass + '__content',
+    contentActiveClass: baseClass + '__content--active'
   };
 
   /**
@@ -65,6 +67,7 @@
       var self = event.data;
       var $target = $(event.target);
       var $panel = $target.closest('.' + self.settings.panelClass);
+      var $trigger = $panel.children('.' + self.settings.triggerClass);
       var $content = $panel.children('.' + self.settings.contentClass);
 
       if (self.settings.singleOpen) {
@@ -73,9 +76,13 @@
           .not($content)
           .slideUp(self.settings.animationSpeed);
         self.$panels.not($panel).removeClass(self.settings.panelActiveClass);
+        self.$panels.not($panel).find('.' + self.settings.triggerClass).removeClass(self.settings.triggerActiveClass);
+        self.$panels.not($panel).find('.' + self.settings.contentClass).removeClass(self.settings.contentActiveClass);
       }
 
       $panel.toggleClass(self.settings.panelActiveClass);
+      $trigger.toggleClass(self.settings.triggerActiveClass);
+      $content.toggleClass(self.settings.contentActiveClass);
       $content.slideToggle(self.settings.animationSpeed);
 
     },
