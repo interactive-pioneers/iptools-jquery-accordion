@@ -17,6 +17,7 @@
     animationSpeed: 500,
     singleOpen: true,
     baseClass: baseClass,
+    initializedClass: baseClass + '--initialized',
     panelClass: baseClass + '__panel',
     panelActiveClass: baseClass + '__panel--active',
     triggerClass: baseClass + '__trigger',
@@ -52,13 +53,26 @@
     init: function() {
 
       this.$panels = this.$element.children('.' + this.settings.panelClass);
-      this.$panels.children('.' + this.settings.contentClass).hide();
+      var $activePanels = this.$panels.filter('.' + this.settings.panelActiveClass);
+      if (this.settings.singleOpen) {
+        $activePanels = $activePanels.first();
+      }
+      $activePanels
+        .children('.' + this.settings.contentClass)
+        .show();
+      this.addActiveClasses($activePanels);
+      var $inactivePanels = this.$panels.not($activePanels);
+      $inactivePanels
+        .children('.' + this.settings.contentClass)
+        .hide();
+      this.removeActiveClasses($inactivePanels);
       this.addEventListeners();
+      this.$element.addClass(this.settings.initializedClass);
 
     },
 
     /**
-     * toggle panel content
+     * toggle panel
      * @param {event} event - jQuery event
      * @returns {void}
      */
@@ -71,20 +85,47 @@
       var $content = $panel.children('.' + self.settings.contentClass);
 
       if (self.settings.singleOpen) {
-        self.$panels
+        var $inactivePanels = self.$panels.not($panel);
+        $inactivePanels
           .children('.' + self.settings.contentClass)
-          .not($content)
           .slideUp(self.settings.animationSpeed);
-        self.$panels.not($panel).removeClass(self.settings.panelActiveClass);
-        self.$panels.not($panel).find('.' + self.settings.triggerClass).removeClass(self.settings.triggerActiveClass);
-        self.$panels.not($panel).find('.' + self.settings.contentClass).removeClass(self.settings.contentActiveClass);
+        self.removeActiveClasses($inactivePanels);
       }
 
       $panel.toggleClass(self.settings.panelActiveClass);
       $trigger.toggleClass(self.settings.triggerActiveClass);
       $content.toggleClass(self.settings.contentActiveClass);
       $content.slideToggle(self.settings.animationSpeed);
+    },
 
+    /**
+     * add active classes from panel and related trigger and content elements
+     * @param {jQuery} $panels
+     * @returns {void}
+     */
+    addActiveClasses: function($panels) {
+      $panels
+        .addClass(this.settings.panelActiveClass)
+        .children('.' + this.settings.triggerClass)
+        .addClass(this.settings.triggerActiveClass);
+      $panels
+        .children('.' + this.settings.contentClass)
+        .addClass(this.settings.contentActiveClass);
+    },
+
+    /**
+     * remove active classes from panel and related trigger and content elements
+     * @param {jQuery} $panels
+     * @returns {void}
+     */
+    removeActiveClasses: function($panels) {
+      $panels
+        .removeClass(this.settings.panelActiveClass)
+        .children('.' + this.settings.triggerClass)
+        .removeClass(this.settings.triggerActiveClass);
+      $panels
+        .children('.' + this.settings.contentClass)
+        .removeClass(this.settings.contentActiveClass);
     },
 
     /**
