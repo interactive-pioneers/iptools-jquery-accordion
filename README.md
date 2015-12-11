@@ -35,6 +35,7 @@ Lightweight and easy to use jQuery accordion plugin.
       animationSpeed: 500,
       singleOpen: true,
       baseClass: 'accordion',
+      initializedClass: 'accordion--initialized',
       panelClass: 'accordion__panel',
       panelActiveClass: 'accordion__panel--active',
       triggerClass: 'accordion__trigger',
@@ -53,6 +54,7 @@ Name               | Default                      | Type    | Description
 animationSpeed     | `500`                        | int     | Animation speed in miliseconds.                         
 singleOpen         | `true`                       | boolean | Only one open panel at a time.
 baseClass          | `accordion`                  | string  | Base class of the accordion.
+initializedClass   | `accordion--initialized`     | string  | Class added to the accordion after initialization.
 panelClass         | `accordion__panel`           | string  | Class of panel.
 panelActiveClass   | `accordion__panel--active`   | string  | Class of active panel.
 triggerClass       | `accordion__trigger`         | string  | Class of trigger element.
