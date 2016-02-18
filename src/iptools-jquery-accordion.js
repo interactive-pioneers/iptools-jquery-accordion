@@ -73,33 +73,32 @@
 
     /**
      * toggle panel
-     * @param {event} event - jQuery event
+     * @param {object} panel - DOM element or jQuery object
      * @returns {void}
      */
-    toggle: function(event) {
+    toggle: function(panel) {
 
-      var self = event.data;
-      var $target = $(event.target);
-      var $panel = $target.closest('.' + self.settings.panelClass);
-      var $trigger = $panel.children('.' + self.settings.triggerClass);
-      var $content = $panel.children('.' + self.settings.contentClass);
+      var $panel = $(panel);
+      var $trigger = $panel.children('.' + this.settings.triggerClass);
+      var $content = $panel.children('.' + this.settings.contentClass);
 
-      if (self.settings.singleOpen) {
-        var $inactivePanels = self.$panels.not($panel);
+      if (this.settings.singleOpen) {
+        var $inactivePanels = this.$panels.not($panel);
         $inactivePanels
-          .children('.' + self.settings.contentClass)
-          .slideUp(self.settings.animationSpeed);
-        self.removeActiveClasses($inactivePanels);
+          .children('.' + this.settings.contentClass)
+          .slideUp(this.settings.animationSpeed);
+        this.removeActiveClasses($inactivePanels);
       }
 
-      $panel.toggleClass(self.settings.panelActiveClass);
-      $trigger.toggleClass(self.settings.triggerActiveClass);
-      $content.toggleClass(self.settings.contentActiveClass);
-      $content.slideToggle(self.settings.animationSpeed);
+      $panel.toggleClass(this.settings.panelActiveClass);
+      $trigger.toggleClass(this.settings.triggerActiveClass);
+      $content.toggleClass(this.settings.contentActiveClass);
+      $content.slideToggle(this.settings.animationSpeed);
+
     },
 
     /**
-     * add active classes from panel and related trigger and content elements
+     * add active classes to panel and related trigger and content elements
      * @param {jQuery} $panels
      * @returns {void}
      */
@@ -136,7 +135,7 @@
 
       this.$panels
         .children('.' + this.settings.triggerClass)
-        .on('click' + '.' + this._name, null, this, this.toggle);
+        .on('click' + '.' + this._name, null, this, handleTriggerClicked);
 
     },
 
@@ -155,6 +154,15 @@
     }
 
   };
+
+  function handleTriggerClicked(event) {
+
+    var self = event.data;
+    var $target = $(event.target);
+    var $panel = $target.closest('.' + self.settings.panelClass);
+    self.toggle($panel);
+
+  }
 
   $.fn[pluginName] = function(options) {
     return this.each(function() {
