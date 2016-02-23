@@ -29,7 +29,7 @@ Lightweight and easy to use jQuery accordion plugin.
   </div>
 </div>
 
-<script src="src/iptools-jquery-accordion.js"></script>
+<script src="dist/iptools-jquery-accordion.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $('.accordion').iptAccordion({
