@@ -18,7 +18,8 @@ Lightweight and easy to use jQuery accordion plugin.
     <div class="accordion__trigger"></div>
     <div class="accordion__content"></div>
   </div>
-  <div class="accordion__panel">
+  <!-- panels with panelActiveClass will be opened automatically on plugin initialization -->
+  <div class="accordion__panel accordion__panel--active">
     <div class="accordion__trigger"></div>
     <div class="accordion__content"></div>
   </div>
@@ -39,9 +40,9 @@ Lightweight and easy to use jQuery accordion plugin.
       panelClass: 'accordion__panel',
       panelActiveClass: 'accordion__panel--active',
       triggerClass: 'accordion__trigger',
-      triggerActiveClass: baseClass + '__trigger--active',
+      triggerActiveClass: 'accordion__trigger--active',
       contentClass: 'accordion__content',
-      contentActiveClass: baseClass + '__content--active'
+      contentActiveClass: 'accordion__content--active'
     });
   });
 </script>
