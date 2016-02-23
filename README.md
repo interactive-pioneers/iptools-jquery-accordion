@@ -62,6 +62,25 @@ triggerActiveClass | `accordion__trigger--active` | string  | Class of active tr
 contentClass       | `accordion__content`         | string  | Class of content element.
 contentActiveClass | `accordion__content--active` | string  | Class of active content element.
 
+## Events
+
+Events triggered on accordion wrapper / base element:
+
+- initialized.iptAccordion, on initialization
+
+Events triggered on accordion panels:
+
+- beforeOpen.iptAccordion : before a panel is opened
+- afterOpen.iptAccordion : after a panel has been opened (animation complete)
+- beforeClose.iptAccordion : before a panel is closed
+- afterClose.iptAccordion : after a panel has been closed (animation complete)
+
+Events that the accordion listens to and can be used to trigger actions on panels:
+
+- open.iptAccordion : opens a panel
+- close.iptAccordion : closes a panel
+- toggle.iptAccordion : toggles a panel
+
 ## Contributions
 
 ### Bug reports, suggestions
