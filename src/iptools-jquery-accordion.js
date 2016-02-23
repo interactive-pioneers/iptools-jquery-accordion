@@ -52,22 +52,24 @@
      */
     init: function() {
 
-      this.$panels = this.$element.children('.' + this.settings.panelClass);
-      var $activePanels = this.$panels.filter('.' + this.settings.panelActiveClass);
+      this.$panels = this.$element.children(selectorFromClass(this.settings.panelClass));
+      var $activePanels = this.$panels.filter(selectorFromClass(this.settings.panelActiveClass));
       if (this.settings.singleOpen) {
         $activePanels = $activePanels.first();
       }
       $activePanels
-        .children('.' + this.settings.contentClass)
+        .children(selectorFromClass(this.settings.contentClass))
         .show();
       this.addActiveClasses($activePanels);
       var $inactivePanels = this.$panels.not($activePanels);
       $inactivePanels
-        .children('.' + this.settings.contentClass)
+        .children(selectorFromClass(this.settings.contentClass))
         .hide();
       this.removeActiveClasses($inactivePanels);
       this.addEventListeners();
-      this.$element.addClass(this.settings.initializedClass);
+      this.$element
+        .addClass(this.settings.initializedClass)
+        .trigger(getNamespacedEvent('initialized'));
 
     },
 
@@ -79,52 +81,93 @@
     toggle: function(panel) {
 
       var $panel = $(panel);
-      var $trigger = $panel.children('.' + this.settings.triggerClass);
-      var $content = $panel.children('.' + this.settings.contentClass);
-
-      if (this.settings.singleOpen) {
-        var $inactivePanels = this.$panels.not($panel);
-        $inactivePanels
-          .children('.' + this.settings.contentClass)
-          .slideUp(this.settings.animationSpeed);
-        this.removeActiveClasses($inactivePanels);
+      if ($panel.length === 1 && $panel.hasClass(this.settings.panelActiveClass)) {
+        this.close($panel);
+      } else {
+        this.open($panel);
       }
-
-      $panel.toggleClass(this.settings.panelActiveClass);
-      $trigger.toggleClass(this.settings.triggerActiveClass);
-      $content.toggleClass(this.settings.contentActiveClass);
-      $content.slideToggle(this.settings.animationSpeed);
 
     },
 
     /**
-     * add active classes to panel and related trigger and content elements
-     * @param {jQuery} $panels
+     * open panels
+     * @param {object} $panels - jQuery object
+     * @returns {void}
+     */
+    open: function($panels) {
+
+      if ($panels.length > 0) {
+        if (this.settings.singleOpen) {
+          $panels = $panels.first();
+        }
+        $panels
+          .trigger(getNamespacedEvent('beforeOpen'))
+          .children('.' + this.settings.contentClass)
+          .slideDown(this.settings.animationSpeed, function() {
+            $panels.trigger(getNamespacedEvent('afterOpen'));
+          });
+        this.addActiveClasses($panels);
+        if (this.settings.singleOpen) {
+          this.$panels
+            .not($panels)
+            .filter(selectorFromClass(this.settings.panelActiveClass))
+            .trigger(getNamespacedEvent('close'));
+        }
+      }
+
+    },
+
+    /**
+     * close panels
+     * @param {object} $panels - jQuery object
+     * @returns {void}
+     */
+    close: function($panels) {
+
+      if ($panels.length > 0) {
+        $panels
+          .trigger(getNamespacedEvent('beforeClose'))
+          .children('.' + this.settings.contentClass)
+          .slideUp(this.settings.animationSpeed, function() {
+            $panels.trigger(getNamespacedEvent('afterClose'));
+          });
+        this.removeActiveClasses($panels);
+      }
+
+    },
+
+    /**
+     * add active classes to given panels and related trigger and content elements
+     * @param {object} $panels - jQuery object
      * @returns {void}
      */
     addActiveClasses: function($panels) {
+
       $panels
         .addClass(this.settings.panelActiveClass)
-        .children('.' + this.settings.triggerClass)
+        .children(selectorFromClass(this.settings.triggerClass))
         .addClass(this.settings.triggerActiveClass);
       $panels
-        .children('.' + this.settings.contentClass)
+        .children(selectorFromClass(this.settings.contentClass))
         .addClass(this.settings.contentActiveClass);
+
     },
 
     /**
-     * remove active classes from panel and related trigger and content elements
-     * @param {jQuery} $panels
+     * remove active classes from given panels and related trigger and content elements
+     * @param {object} $panels - jQuery object
      * @returns {void}
      */
     removeActiveClasses: function($panels) {
+
       $panels
         .removeClass(this.settings.panelActiveClass)
-        .children('.' + this.settings.triggerClass)
+        .children(selectorFromClass(this.settings.triggerClass))
         .removeClass(this.settings.triggerActiveClass);
       $panels
-        .children('.' + this.settings.contentClass)
+        .children(selectorFromClass(this.settings.contentClass))
         .removeClass(this.settings.contentActiveClass);
+
     },
 
     /**
@@ -134,8 +177,12 @@
     addEventListeners: function() {
 
       this.$panels
-        .children('.' + this.settings.triggerClass)
-        .on('click' + '.' + this._name, null, this, handleTriggerClicked);
+        .children(selectorFromClass(this.settings.triggerClass))
+        .on(getNamespacedEvent('click'), null, this, handleTriggerClicked);
+      this.$panels
+        .on(getNamespacedEvent('open'), null, this, handlePanelOpenEvent)
+        .on(getNamespacedEvent('close'), null, this, handlePanelCloseEvent)
+        .on(getNamespacedEvent('toggle'), null, this, handlePanelToggleEvent);
 
     },
 
@@ -147,9 +194,14 @@
 
       this.$panels
         .children('.' + this.settings.triggerClass)
-        .off('click' + '.' + this._name);
-      this.$panels.children('.' + this.settings.contentClass).show();
-      this.$element.removeData();
+        .off(getNamespacedEvent('click'))
+        .off(getNamespacedEvent('open'))
+        .off(getNamespacedEvent('close'))
+        .off(getNamespacedEvent('toggle'));
+      this.$panels
+        .children('.' + this.settings.contentClass)
+        .show();
+      this.$element.removeData('plugin_' + pluginName);
 
     }
 
@@ -161,6 +213,36 @@
     var $target = $(event.target);
     var $panel = $target.closest('.' + self.settings.panelClass);
     self.toggle($panel);
+
+  }
+
+  function handlePanelOpenEvent(event) {
+
+    event.data.open($(event.target));
+
+  }
+
+  function handlePanelCloseEvent(event) {
+
+    event.data.close($(event.target));
+
+  }
+
+  function handlePanelToggleEvent(event) {
+
+    event.data.close(event.target);
+
+  }
+
+  function selectorFromClass(className) {
+
+    return '.' + className;
+
+  }
+
+  function getNamespacedEvent(eventName) {
+
+    return eventName + '.' + pluginName;
 
   }
 
