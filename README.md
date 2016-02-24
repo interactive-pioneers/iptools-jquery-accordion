@@ -8,7 +8,7 @@ Lightweight and easy to use jQuery accordion plugin.
 
 ## Requirements
 
-- jQuery (version 2.1.4)
+- jQuery >= 1.11.3
 
 ## Example
 
@@ -52,7 +52,7 @@ Lightweight and easy to use jQuery accordion plugin.
 
 Name               | Default                      | Type    | Description
 :------------------|:-----------------------------|:--------|:-----------
-animationSpeed     | `500`                        | int     | Animation speed in miliseconds.                         
+animationSpeed     | `500`                        | int     | Animation speed in miliseconds.
 singleOpen         | `true`                       | boolean | Only one open panel at a time.
 baseClass          | `accordion`                  | string  | Base class of the accordion.
 initializedClass   | `accordion--initialized`     | string  | Class added to the accordion after initialization.
