@@ -1,4 +1,4 @@
-# iptools-jquery-accordion [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-accordion.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-accordion)
+# iptools-jquery-accordion [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-accordion.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-accordion) [![Bower version](https://badge.fury.io/bo/iptools-jquery-accordion.svg)](http://badge.fury.io/bo/iptools-jquery-accordion)
 
 jQuery accordion plugin
 
