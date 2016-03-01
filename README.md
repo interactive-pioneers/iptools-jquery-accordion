@@ -23,8 +23,8 @@ Lightweight and easy to use jQuery accordion plugin.
     <div class="accordion__trigger"></div>
     <div class="accordion__content"></div>
   </div>
-  <!-- panels with data-accordion-expanded will also be opened automatically on plugin initialization -->
-  <div class="accordion__panel" data-accordion-expanded="true">
+  <!-- panels with data-accordion-panel-activated will also be opened automatically on plugin initialization -->
+  <div class="accordion__panel" data-accordion-panel-activated="true">
     <div class="accordion__trigger"></div>
     <div class="accordion__content"></div>
   </div>
@@ -73,7 +73,7 @@ contentActiveClass | `accordion__content--active` | string  | Class of active co
 
 Name               | Type    | Description
 :------------------|:--------|:-----------
-data-accordion-expanded | boolean     | Denotes active panel opened on plugin initilization. See also `panelActiveClass` option.
+data-accordion-panel-activated | boolean     | Denotes active panel opened on plugin initilization. See also `panelActiveClass` option.
 
 ## Events
 

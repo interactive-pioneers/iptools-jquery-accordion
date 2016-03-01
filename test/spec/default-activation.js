@@ -15,7 +15,7 @@
 
     describe('init', function() {
 
-      context('with class-based expand', function() {
+      context('with class-based activation', function() {
 
         context('when last node marked active', function() {
 
@@ -37,7 +37,7 @@
             accordion.data(pluginName).destroy();
           });
 
-          it('expected to expand last node', function() {
+          it('expected to activate last node', function() {
             var visible = $element
               .children('.' + settings.panelClass)
               .last()
@@ -68,7 +68,7 @@
             accordion.data(pluginName).destroy();
           });
 
-          it('expected to expand 1st node', function() {
+          it('expected to activate 1st node', function() {
             var visible = $element
               .children('.' + settings.panelClass)
               .first()
@@ -81,7 +81,7 @@
 
       });
 
-      context('with data-based expand', function() {
+      context('with data-based activation', function() {
 
         context('when last node marked active', function() {
 
@@ -91,7 +91,7 @@
               .append($content1);
             var $content2 = $('<div>').addClass(settings.contentClass);
             var $panel2 = $('<div>').addClass(settings.panelClass)
-              .attr('data-accordion-expanded', 'true')
+              .attr('data-accordion-panel-activated', 'true')
               .append($content2);
             $element.append($panel1);
             $element.append($panel2);
@@ -103,7 +103,7 @@
             accordion.data(pluginName).destroy();
           });
 
-          it('expected to expand last node', function() {
+          it('expected to activate last node', function() {
             var visible = $element
               .children('.' + settings.panelClass)
               .last()
@@ -119,7 +119,7 @@
           before(function() {
             var $content1 = $('<div>').addClass(settings.contentClass);
             var $panel1 = $('<div>').addClass(settings.panelClass)
-              .attr('data-accordion-expanded', 'true')
+              .attr('data-accordion-panel-activated', 'true')
               .append($content1);
             var $content2 = $('<div>').addClass(settings.contentClass);
             var $panel2 = $('<div>').addClass(settings.panelClass)
@@ -134,7 +134,7 @@
             accordion.data(pluginName).destroy();
           });
 
-          it('expected to expand 1st node', function() {
+          it('expected to activate 1st node', function() {
             var visible = $element
               .children('.' + settings.panelClass)
               .first()

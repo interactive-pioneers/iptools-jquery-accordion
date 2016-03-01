@@ -94,7 +94,7 @@
       this.$panels = this.$element.children(selectorFromClass(this.settings.panelClass));
       var $activePanels = this.$panels
         .filter(selectorFromClass(this.settings.panelActiveClass))
-        .add(this.$panels.filter('[data-accordion-expanded="true"]'));
+        .add(this.$panels.filter('[data-accordion-panel-activated="true"]'));
       if (this.settings.singleOpen) {
         $activePanels = $activePanels.first();
       }
