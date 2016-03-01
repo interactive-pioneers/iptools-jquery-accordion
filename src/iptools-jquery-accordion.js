@@ -44,6 +44,45 @@
 
   }
 
+  function selectorFromClass(className) {
+
+    return '.' + className;
+
+  }
+
+  function getNamespacedEvent(eventName) {
+
+    return eventName + '.' + pluginName;
+
+  }
+
+  function handleTriggerClicked(event) {
+
+    var self = event.data;
+    var $target = $(event.target);
+    var $panel = $target.closest('.' + self.settings.panelClass);
+    self.toggle($panel);
+
+  }
+
+  function handlePanelOpenEvent(event) {
+
+    event.data.open($(event.target));
+
+  }
+
+  function handlePanelCloseEvent(event) {
+
+    event.data.close($(event.target));
+
+  }
+
+  function handlePanelToggleEvent(event) {
+
+    event.data.close(event.target);
+
+  }
+
   IPTAccordion.prototype = {
 
     /**
@@ -206,45 +245,6 @@
     }
 
   };
-
-  function handleTriggerClicked(event) {
-
-    var self = event.data;
-    var $target = $(event.target);
-    var $panel = $target.closest('.' + self.settings.panelClass);
-    self.toggle($panel);
-
-  }
-
-  function handlePanelOpenEvent(event) {
-
-    event.data.open($(event.target));
-
-  }
-
-  function handlePanelCloseEvent(event) {
-
-    event.data.close($(event.target));
-
-  }
-
-  function handlePanelToggleEvent(event) {
-
-    event.data.close(event.target);
-
-  }
-
-  function selectorFromClass(className) {
-
-    return '.' + className;
-
-  }
-
-  function getNamespacedEvent(eventName) {
-
-    return eventName + '.' + pluginName;
-
-  }
 
   $.fn[pluginName] = function(options) {
     return this.each(function() {
