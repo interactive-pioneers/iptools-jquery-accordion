@@ -144,6 +144,7 @@
         $panels
           .trigger(getNamespacedEvent('beforeOpen'))
           .children('.' + this.settings.contentClass)
+          .stop()
           .slideDown(this.settings.animationSpeed, function() {
             $panels.trigger(getNamespacedEvent('afterOpen'));
           });
@@ -169,6 +170,7 @@
         $panels
           .trigger(getNamespacedEvent('beforeClose'))
           .children('.' + this.settings.contentClass)
+          .stop()
           .slideUp(this.settings.animationSpeed, function() {
             $panels.trigger(getNamespacedEvent('afterClose'));
           });
