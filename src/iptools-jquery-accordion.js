@@ -79,7 +79,7 @@
 
   function handlePanelToggleEvent(event) {
 
-    event.data.close(event.target);
+    event.data.toggle(event.target);
 
   }
 
