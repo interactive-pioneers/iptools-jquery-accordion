@@ -77,22 +77,25 @@ data-accordion-panel-activated | boolean     | Denotes active panel opened on pl
 
 ## Events
 
-Events triggered on accordion wrapper / base element:
+### Emitted events
 
-- initialized.iptAccordion : fired on successfull plugin initialization
+Event                      | Emitter                | Description
+:-----                     | :--------              | :-----------
+`initialized.iptAccordion` | wrapper / base element | On successful plugin initialization              |
+`beforeOpen.iptAccordion`  | individual panel       | Before panel is opened                           |
+`afterOpen.iptAccordion`   | individual panel       | After panel has been opened (animation complete) |
+`afterOpen.iptAccordion`   | individual panel       | After panel has been opened (animation complete) |
+`beforeClose.iptAccordion` | individual panel       | Before a panel is closed                         |
+`beforeClose.iptAccordion` | individual panel       | Before a panel is closed                         |
+`afterClose.iptAccordion`  | individual panel       | After panel has been closed (animation complete) |
 
-Events triggered on accordion panels:
+### Subscribed events
 
-- beforeOpen.iptAccordion : fired before a panel is opened
-- afterOpen.iptAccordion : fired after a panel has been opened (animation complete)
-- beforeClose.iptAccordion : fired before a panel is closed
-- afterClose.iptAccordion : fired after a panel has been closed (animation complete)
-
-Events that the accordion listens to and can be used to trigger actions on panels:
-
-- open.iptAccordion : opens a panel
-- close.iptAccordion : closes a panel
-- toggle.iptAccordion : toggles a panel
+Event                 | Action
+:-----                | :-----------
+`open.iptAccordion`   | Opens panel   |
+`close.iptAccordion`  | Closes panel  |
+`toggle.iptAccordion` | Toggles panel |
 
 ## Contributions
 
