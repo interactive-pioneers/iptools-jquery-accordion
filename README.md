@@ -84,8 +84,6 @@ Event                      | Emitter                | Description
 `initialized.iptAccordion` | wrapper / base element | On successful plugin initialization              |
 `beforeOpen.iptAccordion`  | individual panel       | Before panel is opened                           |
 `afterOpen.iptAccordion`   | individual panel       | After panel has been opened (animation complete) |
-`afterOpen.iptAccordion`   | individual panel       | After panel has been opened (animation complete) |
-`beforeClose.iptAccordion` | individual panel       | Before a panel is closed                         |
 `beforeClose.iptAccordion` | individual panel       | Before a panel is closed                         |
 `afterClose.iptAccordion`  | individual panel       | After panel has been closed (animation complete) |
 
