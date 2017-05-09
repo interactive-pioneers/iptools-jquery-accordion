@@ -50,5 +50,11 @@
     "javascript",
     "accordion",
     "jquery"
+  ],
+  "files": [
+    "*.md",
+    "LICENSE",
+    "src",
+    "dist"
   ]
 }
