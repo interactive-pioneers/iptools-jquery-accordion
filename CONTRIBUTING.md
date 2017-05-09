@@ -18,7 +18,7 @@ First, ensure that you have the [Node.js](http://nodejs.org/) 6.2.0 or greater i
 1. Create a new branch, please don't work in your `master` branch directly.
 1. Add failing tests for the change you want to make. Run `grunt` to see the tests fail.
 1. Fix stuff.
-1. Run `npm run grunt qa` to see if the tests pass. Repeat steps 2-4 until done.
+1. Run `npm test` to see if the QA passes. Repeat steps 2-4 until done.
 1. Update the documentation to reflect any changes.
 1. Push to your fork and submit a pull request.
 
