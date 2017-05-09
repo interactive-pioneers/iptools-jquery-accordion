@@ -22,7 +22,9 @@
     }
   ],
   "bugs": "https://github.com/interactive-pioneers/iptools-jquery-accordion/issues",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": ">=1.11.3 <4.0.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-concurrent": "~2.2.1",

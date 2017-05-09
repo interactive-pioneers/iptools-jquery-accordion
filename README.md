@@ -8,7 +8,7 @@ Lightweight and easy to use jQuery accordion plugin.
 
 ## Requirements
 
-- jQuery >= 1.11.3
+- jQuery >= 1.11.3 <4.0.0
 
 ## Example
 
