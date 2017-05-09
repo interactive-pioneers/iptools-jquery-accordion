@@ -8,7 +8,7 @@ Lightweight and easy to use jQuery accordion plugin.
 
 ## Requirements
 
-- jQuery >= 1.11.3
+- jQuery >= 1.11.3 <4.0.0
 
 ## Example
 
@@ -97,4 +97,4 @@ Event                 | Action
 
 ## Licence
 
-Copyright © 2015-2016 Interactive Pioneers GmbH. Licenced under [GPL-3](LICENSE).
+Copyright © 2015-2017 Interactive Pioneers GmbH. Licenced under [GPL-3](LICENSE).
