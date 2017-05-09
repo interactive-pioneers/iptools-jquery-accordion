@@ -97,4 +97,4 @@ Event                 | Action
 
 ## Licence
 
-Copyright © 2015-2016 Interactive Pioneers GmbH. Licenced under [GPL-3](LICENSE).
+Copyright © 2015-2017 Interactive Pioneers GmbH. Licenced under [GPL-3](LICENSE).
